@@ -28,7 +28,7 @@ import 'package:event_taxi/event_taxi.dart';
 EventTaxi eventBus = EventTaxiImpl();
 ```
 
-**Note:** .....
+**Note:** The EventTaxi is always a singleton
 
 ### 2. Define Events
 
