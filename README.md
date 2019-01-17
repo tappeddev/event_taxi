@@ -23,14 +23,34 @@ This is EventTaxi :D
 ### 1. Create an Event Bus
 
 ```
-import 'package:event_bus/event_bus.dart';
+import 'package:event_taxi/event_taxi.dart';
 
 EventTaxi eventBus = EventTaxiImpl();
 ```
 
-**Note:**
+**Note:** .....
 
 ### 2. Define Events
+
+You can simple create new events like this:
+
+```
+import 'package:event_taxi/event_taxi.dart';
+
+class OnUserLoggedInEvent implements Event {
+  User user;
+
+  OnUserLoggedInEvent(this.user);
+}
+
+class OnLoggedOutEvent implements Event {
+  bool success;
+
+  OnLoggedOutEvent(this.success);
+}
+```
+
+
 
 ### 3. Register Listeners
 
