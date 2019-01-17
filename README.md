@@ -1,20 +1,41 @@
 
-Created from templates made available by Stagehand under a BSD-style
-[license](https://github.com/dart-lang/stagehand/blob/master/LICENSE).
+# EventTaxi
+
+## Pattern
+
+[EventBus](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern)
+
+## Event Taxi in Flutter Apps or Angular Web Apps
+
+The Pattern is especially helpful for decoupling different layer from each other.
+I have found another nice "EventBus Pattern": [EventBus](https://github.com/marcojakob/dart-event-bus)
+
+This package is a EventBus but with a little bit more functionality and comfort.
+This is EventTaxi :D
 
 ## Usage
 
-A simple usage example:
 
-```dart
-import 'package:event_taxi/event_taxi.dart';
+### 1. Create an Event Bus
 
-main() {
-  var awesome = new Awesome();
-}
+```
+import 'package:event_bus/event_bus.dart';
+
+EventTaxi eventBus = EventTaxiImpl();
 ```
 
+**Note:**
 
+### 2. Define Events
+
+### 3. Register Listeners
+
+### 4. Fire Events
+
+
+## License
+
+The MIT License (MIT)
 
 ## Features and bugs
 
