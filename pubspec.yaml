@@ -1,8 +1,8 @@
 name: event_taxi
 description: A starting point for Dart libraries or applications.
-# version: 1.0.0
-# homepage: https://www.example.com
-# author: stesc <email@example.com>
+version: 0.0.1
+homepage: https://github.com/tikkrapp/event_taxi
+author: Tikkr <info@tikkr.app>
 
 environment:
   sdk: '>=2.1.0 <3.0.0'
