@@ -3,7 +3,11 @@
 
 ## Pattern
 
-[EventBus](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern)
+An [EventBus](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern) follows the publish/subscribe pattern.
+It allows listeners to subscribe for events and publishers to fire events.
+This enables objects to interact without requiring to explicitly define listeners and keeping track of them.
+
+Read the full Wikipedia article: [EventBus](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern)
 
 ## Event Taxi in Flutter Apps or Angular Web Apps
 
