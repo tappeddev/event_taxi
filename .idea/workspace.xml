@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b0d257e1-fc2c-4575-a828-fe8b425673c3" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/event_taxi_base.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/event_taxi_base.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/event_taxi_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/test/event_taxi_test.dart" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,14 +29,14 @@
           <entry key="Dart" value="40" />
           <entry key="IDEA_MODULE" value="2" />
           <entry key="Image" value="1" />
-          <entry key="PLAIN_TEXT" value="18" />
+          <entry key="PLAIN_TEXT" value="19" />
           <entry key="YAML" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Dart" value="1013" />
-          <entry key="PLAIN_TEXT" value="1614" />
+          <entry key="PLAIN_TEXT" value="1673" />
           <entry key="YAML" value="44" />
         </counts>
       </usages-collector>
@@ -49,7 +48,17 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -79,6 +88,7 @@
         <option value="$PROJECT_DIR$/CHANGELOG.md" />
         <option value="$PROJECT_DIR$/lib/src/event_taxi_base.dart" />
         <option value="$PROJECT_DIR$/test/event_taxi_test.dart" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -130,7 +140,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547820085803" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547839312033" />
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="show.migrate.to.gradle.popup" value="false" />
@@ -280,7 +290,14 @@
       <option name="project" value="LOCAL" />
       <updated>1547816066657</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="fix_exception_listen_all fix tests / remove assertion">
+      <created>1547839142946</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1547839142947</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -291,6 +308,15 @@
       <configuration name="name in event_taxi_test.dart" configurationId="DartTestRunConfigurationType" />
     </history-entry>
     <history-entry file="name_in_event_taxi_test_dart - 2019.01.17 at 19h 34m 25s.xml">
+      <configuration name="name in event_taxi_test.dart" configurationId="DartTestRunConfigurationType" />
+    </history-entry>
+    <history-entry file="tests_in_event_taxi_test_dart - 2019.01.18 at 20h 16m 14s.xml">
+      <configuration name="tests in event_taxi_test.dart" configurationId="DartTestRunConfigurationType" />
+    </history-entry>
+    <history-entry file="name_in_event_taxi_test_dart - 2019.01.18 at 20h 17m 32s.xml">
+      <configuration name="name in event_taxi_test.dart" configurationId="DartTestRunConfigurationType" />
+    </history-entry>
+    <history-entry file="name_in_event_taxi_test_dart - 2019.01.18 at 20h 18m 01s.xml">
       <configuration name="name in event_taxi_test.dart" configurationId="DartTestRunConfigurationType" />
     </history-entry>
   </component>
@@ -305,8 +331,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.33441296" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.33441296" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -315,7 +342,7 @@
       <window_info id="UI Designer" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.49822065" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.27224198" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.5320285" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -352,13 +379,11 @@
     <MESSAGE value="Upload to Dart Packages / Change version" />
     <MESSAGE value="Add missing export path to events" />
     <MESSAGE value="increase version from pubspec.yaml" />
-    <option name="LAST_COMMIT_MESSAGE" value="increase version from pubspec.yaml" />
+    <MESSAGE value="fix_exception_listen_all fix tests / remove assertion" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix_exception_listen_all fix tests / remove assertion" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/test/event_bus_test.dart" />
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/.packages">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -449,6 +474,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="503">
           <caret line="83" selection-start-line="83" selection-end-line="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
         </state>
       </provider>
     </entry>
