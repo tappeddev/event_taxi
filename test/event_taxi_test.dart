@@ -17,7 +17,9 @@ void main() {
   /// First subscribe - Second fire
   ///
 
-  test("name", () {
+  test(
+      "registerAll - add multiple events to eventBus - emit all events in order",
+      () {
     var firstEvent = FirstTestEvent();
     var secondEvent = SecondTestEvent();
 
@@ -28,7 +30,9 @@ void main() {
     eventTaxi.fire(secondEvent);
   });
 
-  test("name", () {
+  test(
+      "registerTo - add multiple events with different types - emit the event with the right type",
+      () {
     var firstEvent = FirstTestEvent();
     var secondEvent = SecondTestEvent();
 
@@ -45,7 +49,9 @@ void main() {
   /// First fire - Second subscribe
   ///
 
-  test("name", () {
+  test(
+      "registerTo - add mutiple events with different types - emit the event with the right type",
+      () {
     var firstEvent = FirstTestEvent();
     var secondEvent = SecondTestEvent();
 
@@ -58,7 +64,11 @@ void main() {
     expect(eventTaxi.registerTo<SecondTestEvent>(true), emits(secondEvent));
   });
 
-  test("name", () {
+  test("registerAll - add mutiple events with different types - emit the last fired event", () {
+
+    // Explanation:
+    //   The Behavior functionality cashes only the last event.
+    //   Check the BehaviorSubject from RX to understand it.
 
     var firstEvent = FirstTestEvent();
     var secondEvent = SecondTestEvent();
