@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:event_taxi/src/event.dart';
 import 'package:event_taxi/src/event_controller.dart';
 
-
 /// Dispatches events to listeners using the Dart [Stream] API. The [EventTaxi]
 /// enables decoupled applications. It allows objects to interact without
 /// requiring to explicitly define listeners and keeping track of them.
@@ -12,7 +11,6 @@ import 'package:event_taxi/src/event_controller.dart';
 /// A [Event] is a normal Dart objects the implements the [Event] interface.
 ///
 abstract class EventTaxi {
-
   /// Fire = Send a [Event] through the [EventTaxi]
   /// Send subclasses of [Event] through the Dart [Stream] API.
   void fire<T extends Event>(T event);
@@ -34,13 +32,10 @@ abstract class EventTaxi {
   void close();
 }
 
-
 class EventTaxiImpl implements EventTaxi {
-
   /// The single instance of the [EventTaxi].
   /// It needs to be a single instance because we don't want to lose [Event]'s
   static final EventTaxiImpl _instance = EventTaxiImpl._();
-
 
   final Map<String, List<EventController<Event>>> _streamEventMap = Map();
 
@@ -58,12 +53,10 @@ class EventTaxiImpl implements EventTaxi {
   /// If you don't close the [EventTaxi], you may get memory leak issues.
   bool _eventBusIsAlreadyClosed = false;
 
-
   /// Private constructor - Use the factory to get the instance of the [EventTaxi].
-  EventTaxiImpl._(){
+  EventTaxiImpl._() {
     _streamEventMap[_allEventsKey] = List();
   }
-
 
   /// This class has only one instance
   factory EventTaxiImpl() => _instance;
@@ -99,7 +92,7 @@ class EventTaxiImpl implements EventTaxi {
     _streamEventMap[_allEventsKey] ??= List();
 
     EventController<Event> controller =
-    _createAndAddController(includeLastEvent, _allEventsKey);
+        _createAndAddController(includeLastEvent, _allEventsKey);
 
     /// If the [previousEvent] parameter is set to true, we add the last event to the [EventController]
     if (includeLastEvent) {
@@ -119,7 +112,7 @@ class EventTaxiImpl implements EventTaxi {
     _streamEventMap[eventKeyName] ??= List();
 
     EventController<Event> controller =
-    _createAndAddController(includeLastEvent, eventKeyName);
+        _createAndAddController(includeLastEvent, eventKeyName);
 
     /// If the [previousEvent] parameter is set to true, we add the last event to the [EventController]
     if (includeLastEvent) {
@@ -151,7 +144,7 @@ class EventTaxiImpl implements EventTaxi {
         : PublishEventController<Event>();
 
     List<EventController<Event>> controllerList =
-    _streamEventMap[key] ??= List();
+        _streamEventMap[key] ??= List();
 
     controllerList.add(eventController);
 
@@ -164,7 +157,7 @@ class EventTaxiImpl implements EventTaxi {
 
   void _notifyAll(Event event) {
     List<EventController<Event>> allEventControllers =
-    _streamEventMap[_allEventsKey];
+        _streamEventMap[_allEventsKey];
 
     if (allEventControllers.isEmpty) {
       return;
@@ -179,6 +172,6 @@ class EventTaxiImpl implements EventTaxi {
     List<EventController<Event>> eventList = _streamEventMap[name] ?? List();
 
     eventList.forEach(
-            (EventController<Event> eventController) => eventController.add(event));
+        (EventController<Event> eventController) => eventController.add(event));
   }
 }

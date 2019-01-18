@@ -54,6 +54,7 @@ class OnLoggedOutEvent implements Event {
 
 ### 3. Register Listeners
 
+
 ### 4. Fire Events
 
 

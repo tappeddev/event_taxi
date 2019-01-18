@@ -2,13 +2,11 @@ import 'package:event_taxi/event_taxi.dart';
 import 'package:event_taxi/src/event.dart';
 
 class TextEvent implements Event {
-
   /// The [Event] class is immutable, that means that all properties must be final
   final int textCounter;
 
   TextEvent(this.textCounter);
 }
-
 
 main() {
   // This is a ui page
@@ -18,17 +16,15 @@ main() {
   iAmAnotherPage();
 }
 
-
-void iAmAPage(){
-
+void iAmAPage() {
   EventTaxi eventBus = EventTaxiImpl();
 
-  eventBus.registerTo<TextEvent>().listen((textEvent){
+  eventBus.registerTo<TextEvent>().listen((textEvent) {
     // Now you have event
   });
 }
 
-void iAmAnotherPage(){
+void iAmAnotherPage() {
   EventTaxi eventTaxi = EventTaxiImpl();
 
   // We send the event through the eventBus
