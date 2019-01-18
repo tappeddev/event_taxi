@@ -4,7 +4,7 @@ import 'package:test/test.dart';
 
 class FirstTestEvent implements Event {}
 
-class SecondTextEvent implements Event {}
+class SecondTestEvent implements Event {}
 
 void main() {
   EventTaxi eventTaxi;
@@ -19,7 +19,7 @@ void main() {
 
   test("name", () {
     var firstEvent = FirstTestEvent();
-    var secondEvent = SecondTextEvent();
+    var secondEvent = SecondTestEvent();
 
     expect(eventTaxi.registerAll(),
         emitsInOrder(<Event>[firstEvent, secondEvent]));
@@ -30,9 +30,9 @@ void main() {
 
   test("name", () {
     var firstEvent = FirstTestEvent();
-    var secondEvent = SecondTextEvent();
+    var secondEvent = SecondTestEvent();
 
-    expect(eventTaxi.registerTo<SecondTextEvent>(), emits(secondEvent));
+    expect(eventTaxi.registerTo<SecondTestEvent>(), emits(secondEvent));
 
     eventTaxi.fire(firstEvent);
     eventTaxi.fire(firstEvent);
@@ -45,25 +45,27 @@ void main() {
   /// First fire - Second subscribe
   ///
 
-  test("name",
-      () {
+  test("name", () {
+    var firstEvent = FirstTestEvent();
+    var secondEvent = SecondTestEvent();
 
+    eventTaxi.fire(firstEvent);
+    eventTaxi.fire(secondEvent);
+    eventTaxi.fire(firstEvent);
+    eventTaxi.fire(firstEvent);
+    eventTaxi.fire(firstEvent);
 
-
-    /*eventTaxi.fire(createTaskEvent);
-    eventTaxi.fire(createProjectEvent);
-    eventTaxi.fire(createTaskEvent);
-    eventTaxi.fire(createTaskEvent);
-    eventTaxi.fire(createTaskEvent);
-
-    expect(eventTaxi.registerTo<OnProjectCreatedEvent>(true),
-        emits(createProjectEvent));*/
+    expect(eventTaxi.registerTo<SecondTestEvent>(true), emits(secondEvent));
   });
 
   test("name", () {
-    /*eventTaxi.fire(createProjectEvent);
-    eventTaxi.fire(createTaskEvent);
 
-    expect(eventTaxi.registerAll(true), emits(createTaskEvent));*/
+    var firstEvent = FirstTestEvent();
+    var secondEvent = SecondTestEvent();
+
+    eventTaxi.fire(firstEvent);
+    eventTaxi.fire(secondEvent);
+
+    expect(eventTaxi.registerAll(true), emits(secondEvent));
   });
 }
