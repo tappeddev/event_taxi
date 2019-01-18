@@ -5,4 +5,5 @@ library event_taxi;
 
 export 'src/event_taxi_base.dart';
 export 'src/event_controller.dart';
+export 'src/event.dart';
 
