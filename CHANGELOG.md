@@ -1,3 +1,11 @@
+## 0.1.3
+
+- Update ReadMe.md
+- Fix UnitTests
+- Fix UnitTest name schema
+- Fix Exception from the "registerAll" method.
+
+
 ## 0.1.2
 
 - Decrease Meta Package Version (Flutter Apps got errors with 1.1.7)
