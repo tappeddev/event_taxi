@@ -1,3 +1,7 @@
+## 0.1.1
+
+- Add missing export path from event
+
 ## 0.1.0
 
 - Upload to Dart Packages
