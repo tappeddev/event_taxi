@@ -19,7 +19,7 @@ main() {
 void iAmAPage() {
   EventTaxi eventBus = EventTaxiImpl();
 
-  eventBus.registerTo<TextEvent>().listen((textEvent) {
+  eventBus.registerTo<TextEvent>(true).listen((textEvent) {
     // Now you have event
   });
 }

@@ -19,6 +19,8 @@ abstract class EventTaxi {
   ///
   /// The method is called like this: eventBus.registerTo<MyEvent>();
   ///
+  /// if [includeLastEvent] is true the stream will emit the last event with
+  /// that specific type. If there is no last event it won't to anything.
   Stream<T> registerTo<T extends Event>([bool includeLastEvent = false]);
 
   /// Listens for events of all subtypes of [Event].
@@ -26,6 +28,8 @@ abstract class EventTaxi {
   /// The method is called like this: eventBus.registerAll();
   ///
   /// The returning [Stream] contains every event of this [EventTaxi].
+  /// if [includeLastEvent] is true the stream will emit the last event with
+  /// If there is no last event it won't to anything.
   Stream<Event> registerAll([bool includeLastEvent = false]);
 
   /// Cancel all [Stream]'s to avoid memory leaks

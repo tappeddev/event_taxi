@@ -7,22 +7,17 @@ An [EventBus](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern) f
 It allows listeners to subscribe for events and publishers to fire events.
 This enables objects to interact without requiring to explicitly define listeners and keeping track of them.
 
-Read the full Wikipedia article: [EventBus](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern)
-
 ## Event Taxi in Flutter Apps or Angular Web Apps
 
-The Pattern is especially helpful for decoupling different layer from each other.
-I have found another nice "EventBus Pattern": [EventBus](https://github.com/marcojakob/dart-event-bus)
-
-This package is a EventBus but with a little bit more functionality and comfort.
-This is EventTaxi :D
+This EventBus is perfect for decoupling different layer from each other. 
+Besides the standard functionality provided by 
+[EventBus](https://github.com/marcojakob/dart-event-bus), it appends small additional features that we are using in our products.
 
 ## Usage
 
 
-### 1. Create an Event Bus
-
-```
+### 1. Create the Event Taxi 🚕
+```dart
 import 'package:event_taxi/event_taxi.dart';
 
 EventTaxi eventBus = EventTaxiImpl();
@@ -30,32 +25,42 @@ EventTaxi eventBus = EventTaxiImpl();
 
 **Note:** The EventTaxi is always a singleton
 
-### 2. Define Events
+### 2. Define Events 📦
+Every event has to be a sub class of `Event`.
+Those classes can hold additional information if needed.
 
-You can simple create new events like this:
-
-```
-import 'package:event_taxi/event_taxi.dart';
-
-class OnUserLoggedInEvent implements Event {
-  User user;
-
-  OnUserLoggedInEvent(this.user);
-}
-
-class OnLoggedOutEvent implements Event {
-  bool success;
-
-  OnLoggedOutEvent(this.success);
+```dart
+class RefreshDataEvent implements Event {
+  // additional information
+  DateTime requestTime;
+  String fetchedJson;
 }
 ```
 
 
 
-### 3. Register Listeners
+### 3. Register Listeners 🎧
+Simply call `register` to get a stream of events.
+`true` will create a stream that immediately emits the last as well. 
+(Similar to a BehaviourSubject in RxDart.) 
+```dart
+
+//
+eventBus.registerTo<RefreshDataEvent>().listen((event) {
+    // handle event
+  });
+
+```
 
 
-### 4. Fire Events
+### 4. Fire Events 🔥
+Create an instance of your Event class and use `fire`.
+```dart
+
+var event = RefreshDataEvent();
+eventBus.fire(event);
+
+```
 
 
 ## License
