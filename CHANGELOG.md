@@ -1,3 +1,7 @@
+## 0.1.2
+
+- Decrease Meta Package Version (Flutter Apps got errors with 1.1.7)
+
 ## 0.1.1
 
 - Add missing export path from event
