@@ -108,6 +108,7 @@ class EventTaxiImpl implements EventTaxi {
 
   @override
   Stream<T> registerTo<T extends Event>([bool includeLastEvent = false]) {
+    assert(T.toString() != "Event", "T has to be a subclass of Event!");
     assert(!_eventBusIsAlreadyClosed, "EventBus is already closed");
 
     /// The name / key of the map for the events
