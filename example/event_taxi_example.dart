@@ -1,36 +1,38 @@
 import 'package:event_taxi/event_taxi.dart';
 import 'package:event_taxi/src/event.dart';
 
-class TextEvent implements Event {
+class TodoCreated implements Event {
+  final String name;
+  final String description;
 
-  /// The [Event] class is immutable, that means that all properties must be final
-  final int textCounter;
-
-  TextEvent(this.textCounter);
+  TodoCreated({this.name, this.description});
 }
 
+class UserLoggedIn implements Event {
+  final String username;
+
+  UserLoggedIn({this.username});
+}
 
 main() {
-  // This is a ui page
-  iAmAPage();
-
-  // This is another ui page
-  iAmAnotherPage();
-}
-
-
-void iAmAPage(){
-
   EventTaxi eventBus = EventTaxiImpl();
 
-  eventBus.registerTo<TextEvent>().listen((textEvent){
-    // Now you have event
+  eventBus.registerTo<TodoCreated>().listen((event) {
+    // handle event
+    print("to created: name=${event.name}, description=${event.description}");
   });
-}
 
-void iAmAnotherPage(){
-  EventTaxi eventTaxi = EventTaxiImpl();
+  eventBus.fire(TodoCreated(
+      name: "create example",
+      description: "add example for this cool libary called EventTaxi 🚕."));
 
-  // We send the event through the eventBus
-  eventTaxi.fire(TextEvent(22));
+  // additionally you can also register and immediately receive the previous event
+  eventBus.fire((UserLoggedIn(username: "Stefan")));
+
+  eventBus.registerTo<UserLoggedIn>(true).listen((event) {
+    // prints "Stefan" and then "Tobi"
+    print(event.username);
+  });
+
+  eventBus.fire(UserLoggedIn(username: "Tobi"));
 }

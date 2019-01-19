@@ -19,9 +19,7 @@ abstract class EventController<T> {
   void close();
 }
 
-
 class PublishEventController<T> implements EventController<T> {
-
   StreamController<T> _controller;
 
   PublishEventController() {

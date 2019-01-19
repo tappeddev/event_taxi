@@ -5,8 +5,7 @@ import 'package:meta/meta.dart';
 ///
 ///
 /// Example:
-///   class OnUserCreatedEvent implements Event{
-///
+///   class OnUserCreatedEvent implements Event {
 ///     OnUserCreatedEvent();
 ///   }
 ///
