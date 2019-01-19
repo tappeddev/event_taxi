@@ -9,7 +9,7 @@ This enables objects to interact without requiring to explicitly define listener
 
 ## Event Taxi in Flutter Apps or Angular Web Apps
 
-This EventBus is perfect for decoupling different layer from each other. 
+This EventBus is perfect for decoupling different layers from each other. 
 Besides the standard functionality provided by 
 [EventBus](https://github.com/marcojakob/dart-event-bus), it appends small additional features that we are using in our products.
 
@@ -32,8 +32,8 @@ Those classes can hold additional information if needed.
 ```dart
 class RefreshDataEvent implements Event {
   // additional information
-  DateTime requestTime;
-  String fetchedJson;
+  final DateTime requestTime;
+  final String fetchedJson;
 }
 ```
 
