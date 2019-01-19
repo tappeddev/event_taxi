@@ -45,7 +45,7 @@ Simply call `register` to get a stream of events.
 (Similar to a BehaviourSubject in RxDart.) 
 ```dart
 
-eventBus.registerTo<RefreshDataEvent>().listen((event) {
+eventBus.registerTo<RefreshDataEvent>(true).listen((event) {
     // handle event
   });
 
