@@ -84,8 +84,8 @@ class EventTaxiImpl implements EventTaxi {
 
     _lastEvents[name] = event;
 
-    _notifyAll(event);
-    _notifySingle(T.toString(), event);
+    _notify(_allEventsKey, event);
+    _notify(T.toString(), event);
   }
 
   @override
@@ -160,20 +160,7 @@ class EventTaxiImpl implements EventTaxi {
     return eventController;
   }
 
-  void _notifyAll(Event event) {
-    List<EventController<Event>> allEventControllers =
-        _streamEventMap[_allEventsKey];
-
-    if (allEventControllers.isEmpty) {
-      return;
-    }
-
-    assert(allEventControllers.length == 1);
-
-    allEventControllers.first.add(event);
-  }
-
-  void _notifySingle(String name, Event event) {
+  void _notify(String name, Event event) {
     List<EventController<Event>> eventList = _streamEventMap[name] ?? List();
 
     eventList.forEach(
