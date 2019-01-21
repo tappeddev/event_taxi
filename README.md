@@ -20,7 +20,11 @@ Besides the standard functionality provided by
 ```dart
 import 'package:event_taxi/event_taxi.dart';
 
-EventTaxi eventBus = EventTaxiImpl();
+// new instance
+EventTaxi eventTaxi = EventTaxiImpl();
+
+// singleton instance if preferred
+EventTaxi eventTaxi = EventTaxiImpl.singleton();
 ```
 
 **Note:** The EventTaxi is always a singleton
