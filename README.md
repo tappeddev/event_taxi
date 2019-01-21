@@ -20,7 +20,11 @@ Besides the standard functionality provided by
 ```dart
 import 'package:event_taxi/event_taxi.dart';
 
-EventTaxi eventBus = EventTaxiImpl();
+// new instance
+EventTaxi eventTaxi = EventTaxiImpl();
+
+// singleton instance if preferred
+EventTaxi eventTaxi = EventTaxiImpl.singleton();
 ```
 
 **Note:** The EventTaxi is always a singleton
@@ -41,7 +45,7 @@ class RefreshDataEvent implements Event {
 
 ### 3. Register Listeners 🎧
 Simply call `register` to get a stream of events.
-`true` will create a stream that immediately emits the last as well. 
+`true` will create a stream that immediately emits the last event as well. 
 (Similar to a BehaviourSubject in RxDart.) 
 ```dart
 

@@ -64,11 +64,12 @@ void main() {
     expect(eventTaxi.registerTo<SecondTestEvent>(true), emits(secondEvent));
   });
 
-  test("registerAll - add mutiple events with different types - emit the last fired event", () {
-
+  test(
+      "registerAll - add mutiple events with different types - emit the last fired event",
+      () {
     // Explanation:
-    //   The Behavior functionality cashes only the last event.
-    //   Check the BehaviorSubject from RX to understand it.
+    // The Behavior functionality caches only the last event.
+    // Check the BehaviorSubject from RX to understand it.
 
     var firstEvent = FirstTestEvent();
     var secondEvent = SecondTestEvent();
@@ -77,5 +78,14 @@ void main() {
     eventTaxi.fire(secondEvent);
 
     expect(eventTaxi.registerAll(true), emits(secondEvent));
+  });
+
+  test("constructor - always creates a new instance - equals returns false",
+      () {
+    expect(EventTaxiImpl() != EventTaxiImpl(), true);
+  });
+
+  test("singleton - is always the same instance- equals returns true", () {
+    expect(EventTaxiImpl.singleton() == EventTaxiImpl.singleton(), true);
   });
 }
