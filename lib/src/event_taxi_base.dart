@@ -50,6 +50,8 @@ class EventTaxiImpl implements EventTaxi {
 
   static EventTaxiImpl singleton() => _singleton;
 
+  EventTaxiImpl();
+
   final Map<String, List<EventController<Event>>> _streamEventMap = Map();
 
   /// This [Map] stores all last events.

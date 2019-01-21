@@ -1,3 +1,10 @@
+## 0.1.4
+
+- You can use the eventBus as singleton, or as a normal instance
+ normal (new) instance: ```EventBusImpl = new EventBusImpl()```
+ Singleton: ```EventBusImpl = EventBusImpl.singleton()```
+
+
 ## 0.1.3
 
 - Update ReadMe.md
