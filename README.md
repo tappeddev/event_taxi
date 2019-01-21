@@ -41,7 +41,7 @@ class RefreshDataEvent implements Event {
 
 ### 3. Register Listeners 🎧
 Simply call `register` to get a stream of events.
-`true` will create a stream that immediately emits the last as well. 
+`true` will create a stream that immediately emits the last event as well. 
 (Similar to a BehaviourSubject in RxDart.) 
 ```dart
 

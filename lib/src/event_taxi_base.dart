@@ -11,8 +11,15 @@ import 'package:event_taxi/src/event_controller.dart';
 /// A [Event] is a normal Dart objects the implements the [Event] interface.
 ///
 abstract class EventTaxi {
-  /// Fire = Send a [Event] through the [EventTaxi]
-  /// Send subclasses of [Event] through the Dart [Stream] API.
+  /// Fires a new event to everyone registered for events of type [T].
+  /// You can simply create an event by subclassing [Event]:
+  ///
+  /// Example:
+  /// ```dart
+  /// class OnUserCreatedEvent implements Event {
+  ///     OnUserCreatedEvent();
+  /// }
+  /// ```
   void fire<T extends Event>(T event);
 
   /// Listens for events of Type [Event] and its subtypes.
@@ -32,14 +39,16 @@ abstract class EventTaxi {
   /// If there is no last event it won't to anything.
   Stream<Event> registerAll([bool includeLastEvent = false]);
 
-  /// Cancel all [Stream]'s to avoid memory leaks
+  /// Cancels all internals [Sink]'s
+  /// a closed event bus should not be used.
+  /// Doing so will result in AssertionError.
   void close();
 }
 
 class EventTaxiImpl implements EventTaxi {
-  /// The single instance of the [EventTaxi].
-  /// It needs to be a single instance because we don't want to lose [Event]'s
-  static final EventTaxiImpl _instance = EventTaxiImpl._();
+  static final EventTaxiImpl _singleton = EventTaxiImpl();
+
+  static EventTaxiImpl singleton() => _singleton;
 
   final Map<String, List<EventController<Event>>> _streamEventMap = Map();
 
@@ -57,24 +66,6 @@ class EventTaxiImpl implements EventTaxi {
   /// If you don't close the [EventTaxi], you may get memory leak issues.
   bool _eventBusIsAlreadyClosed = false;
 
-  /// Private constructor - Use the factory to get the instance of the [EventTaxi].
-  EventTaxiImpl._() {
-    _streamEventMap[_allEventsKey] = List();
-  }
-
-  /// This class has only one instance
-  factory EventTaxiImpl() => _instance;
-
-  /// You can only send subclasses of [Event].
-  /// You can simply create [Event] like this:
-  ///
-  /// Example:
-  ///   class OnUserCreatedEvent implements Event{
-  ///       OnUserCreatedEvent();
-  ///   }
-  ///
-  /// This method notifies all listeners and stores the last event of every specific [Event]
-  ///
   @override
   void fire<T extends Event>(T event) {
     assert(!_eventBusIsAlreadyClosed, "EventBus is already closed");
