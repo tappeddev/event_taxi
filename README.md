@@ -68,7 +68,7 @@ eventBus.fire(event);
 
 ## License
 
-The MIT License (MIT)
+The Apache License Version 2.0 (Check the LICENCE file in this repository)
 
 ## Features and bugs
 

@@ -1,3 +1,7 @@
+## 0.1.5
+
+- Fix README.md
+
 ## 0.1.4
 
 - You can use the eventBus as singleton, or as a normal instance
