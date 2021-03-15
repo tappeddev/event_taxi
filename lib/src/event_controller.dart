@@ -20,11 +20,7 @@ abstract class EventController<T> {
 }
 
 class PublishEventController<T> implements EventController<T> {
-  StreamController<T> _controller;
-
-  PublishEventController() {
-    _controller = StreamController();
-  }
+  final StreamController<T> _controller = StreamController();
 
   @override
   void set onCancel(void Function() onCancelHandler) {
@@ -46,10 +42,10 @@ class PublishEventController<T> implements EventController<T> {
 }
 
 class BehaviourEventController<T> implements EventController<T> {
-  StreamController<T> _controller;
-  T _lastEvent;
+  late final StreamController<T> _controller;
+  T? _lastEvent;
 
-  BehaviourEventController({T lastEvent}) {
+  BehaviourEventController({T? lastEvent}) {
     _controller = StreamController(onListen: _onListen);
     _lastEvent = lastEvent;
   }
@@ -75,7 +71,7 @@ class BehaviourEventController<T> implements EventController<T> {
 
   void _onListen() {
     if (_lastEvent != null) {
-      _controller.add(_lastEvent);
+      _controller.add(_lastEvent!);
     }
   }
 }

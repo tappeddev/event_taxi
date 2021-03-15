@@ -5,13 +5,13 @@ class TodoCreated implements Event {
   final String name;
   final String description;
 
-  TodoCreated({this.name, this.description});
+  TodoCreated({required this.name, required this.description});
 }
 
 class UserLoggedIn implements Event {
   final String username;
 
-  UserLoggedIn({this.username});
+  UserLoggedIn({required this.username});
 }
 
 main() {

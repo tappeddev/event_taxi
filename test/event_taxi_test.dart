@@ -7,7 +7,7 @@ class FirstTestEvent implements Event {}
 class SecondTestEvent implements Event {}
 
 void main() {
-  EventTaxi eventTaxi;
+  late EventTaxi eventTaxi;
 
   setUp(() {
     eventTaxi = EventTaxiImpl();
