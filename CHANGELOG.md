@@ -1,4 +1,4 @@
-# 2.0.0
+# 1.0.0
 - Stable release for null safety
 
 ## 0.1.5

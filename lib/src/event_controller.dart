@@ -20,9 +20,7 @@ abstract class EventController<T> {
 }
 
 class PublishEventController<T> implements EventController<T> {
-  final StreamController<T> _controller;
-
-  PublishEventController() : _controller = StreamController();
+  final StreamController<T> _controller = StreamController();
 
   @override
   void set onCancel(void Function() onCancelHandler) {

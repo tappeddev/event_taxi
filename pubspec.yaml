@@ -1,5 +1,5 @@
 name: event_taxi
-description: A starting point for Dart libraries or applications.
+description: EventTaxi could be used to send events through different layers of the application decoupled from the architecture.
 version: 1.0.0
 homepage: https://github.com/tappeddev/event_taxi
 author: Tapped <contact@tapped.dev>
