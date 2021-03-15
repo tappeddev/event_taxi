@@ -2,7 +2,6 @@ name: event_taxi
 description: EventTaxi could be used to send events through different layers of the application decoupled from the architecture.
 version: 1.0.0
 homepage: https://github.com/tappeddev/event_taxi
-author: Tapped <contact@tapped.dev>
 
 environment:
   sdk: '>=2.12.0 <3.0.0'
