@@ -1,3 +1,6 @@
+# 2.0.0
+- Stable release for null safety
+
 ## 0.1.5
 
 - Fix README.md

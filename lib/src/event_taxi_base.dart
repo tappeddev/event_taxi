@@ -86,7 +86,7 @@ class EventTaxiImpl implements EventTaxi {
     assert(!_eventBusIsAlreadyClosed, "EventBus is already closed");
 
     /// If this is the first time listening to this event, the list is null
-    _streamEventMap[_allEventsKey] ??= List();
+    _streamEventMap[_allEventsKey] ??= [];
 
     EventController<Event> controller =
         _createAndAddController(includeLastEvent, _allEventsKey);
@@ -107,14 +107,18 @@ class EventTaxiImpl implements EventTaxi {
     /// The name / key of the map for the events
     String eventKeyName = T.toString();
 
-    _streamEventMap[eventKeyName] ??= List();
+    _streamEventMap[eventKeyName] ??= [];
 
     EventController<Event> controller =
         _createAndAddController(includeLastEvent, eventKeyName);
 
     /// If the [previousEvent] parameter is set to true, we add the last event to the [EventController]
     if (includeLastEvent) {
-      controller.add(_lastEvents[eventKeyName]);
+      final lastEvent = _lastEvents[eventKeyName];
+
+      if (lastEvent != null) {
+        controller.add(lastEvent);
+      }
     }
 
     return controller.stream
@@ -126,7 +130,7 @@ class EventTaxiImpl implements EventTaxi {
   @override
   void close() {
     _streamEventMap.values
-        .forEach((sinkMaps) => sinkMaps.forEach((sink) => sink?.close()));
+        .forEach((sinkMaps) => sinkMaps.forEach((sink) => sink.close()));
     _streamEventMap.clear();
     _eventBusIsAlreadyClosed = true;
   }
@@ -141,8 +145,7 @@ class EventTaxiImpl implements EventTaxi {
         ? BehaviourEventController<Event>()
         : PublishEventController<Event>();
 
-    List<EventController<Event>> controllerList =
-        _streamEventMap[key] ??= List();
+    List<EventController<Event>> controllerList = _streamEventMap[key] ??= [];
 
     controllerList.add(eventController);
 
@@ -154,7 +157,7 @@ class EventTaxiImpl implements EventTaxi {
   }
 
   void _notify(String name, Event event) {
-    List<EventController<Event>> eventList = _streamEventMap[name] ?? List();
+    List<EventController<Event>> eventList = _streamEventMap[name] ?? [];
 
     eventList.forEach(
         (EventController<Event> eventController) => eventController.add(event));
